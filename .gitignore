@@ -1,0 +1,72 @@
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Editor and IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+.classpath
+*.sublime-project
+*.sublime-workspace
+
+# Logs and Temporary Files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.eslintcache
+
+# Node Modules (if adding build tools in future)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build and Distribution Files
+dist/
+build/
+*.min.js
+*.min.css
+
+# Environment Variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Testing Coverage
+coverage/
+.nyc_output/
+
+# Backup Files
+*.bak
+*.backup
+*.old
+
+# Cache Files
+.cache/
+.parcel-cache/
+
+# Screenshots and Test Images (except the demo screenshot mentioned in README)
+# Uncomment if you don't want to track test images
+# *.png
+# *.jpg
+# *.jpeg
+# !screenshot.png
+
+# Personal/Local Notes
+TODO.md
+NOTES.md
+.scratch/

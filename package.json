@@ -1,0 +1,35 @@
+{
+    "name": "social-share-image-generator",
+    "version": "1.0.0",
+    "description": "Create professional social media images with intelligent adaptive layouts for any dimension",
+    "main": "index.html",
+    "scripts": {
+        "start": "start index.html"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/emredursun/social-share-image-generator.git"
+    },
+    "keywords": [
+        "social-media",
+        "image-generator",
+        "canvas",
+        "open-graph",
+        "twitter-cards",
+        "instagram",
+        "facebook",
+        "youtube-thumbnail",
+        "adaptive-layout",
+        "social-share",
+        "og-image",
+        "meta-tags",
+        "linkedin",
+        "profile-image"
+    ],
+    "author": "Emre Dursun <info.emredursun@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/emredursun/social-share-image-generator/issues"
+    },
+    "homepage": "https://emredursun.github.io/social-share-image-generator/"
+}

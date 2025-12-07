@@ -1,0 +1,33 @@
+name: Validation
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Use Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Check file structure
+      run: |
+        if [ ! -f "index.html" ]; then echo "index.html missing"; exit 1; fi
+        if [ ! -f "generator.js" ]; then echo "generator.js missing"; exit 1; fi
+        if [ ! -f "README.md" ]; then echo "README.md missing"; exit 1; fi
+        if [ ! -f "LICENSE" ]; then echo "LICENSE missing"; exit 1; fi
+
+    - name: Validate HTML
+      run: |
+        # Simple check for basic HTML structure
+        grep -q "<!DOCTYPE html>" index.html
+        grep -q "<html" index.html
+        grep -q "</html>" index.html
