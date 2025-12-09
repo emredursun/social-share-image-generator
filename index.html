@@ -1,67 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Social Share Image Generator - Professional Tool</title>
+        <meta
+            name="description"
+            content="Create professional social media images with intelligent adaptive layouts. Free tool for Facebook, Twitter, Instagram, LinkedIn, YouTube."
+        />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Share Image Generator - Professional Tool</title>
-    <meta name="description"
-        content="Create professional social media images with intelligent adaptive layouts. Free tool for Facebook, Twitter, Instagram, LinkedIn, YouTube.">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #667eea;
-            --primary-dark: #5568d3;
-            --accent: #fbbf24;
-            --success: #48bb78;
-            --dark: #1e293b;
-            --gray: #f8f9fa;
-            --border: #e0e0e0;
-        }
-
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1600px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            animation: fadeIn 0.6s ease;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
             }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            :root {
+                --primary: #6366F1;
+                --primary-dark: #4F46E5;
+                --accent: #F59E0B;
+                --accent-light: #FBBF24;
+                --success: #10B981;
+                --dark: #0F172A;
+                --dark-secondary: #1E293B;
+                --gray: #F8FAFC;
+                --border: #E2E8F0;
+                --fab-color: #F59E0B;
             }
-        }
 
-        .header {
-            background: linear-gradient(135deg, var(--dark) 0%, #312e81 100%);
+            body {
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+                min-height: 100vh;
+                padding: 20px;
+            }
+
+            .container {
+                max-width: 1600px;
+                margin: 0 auto;
+                background: white;
+                border-radius: 16px;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+                overflow: hidden;
+                animation: fadeIn 0.6s ease;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .header {
+            background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
             color: white;
             padding: 40px;
             text-align: center;
@@ -88,516 +97,959 @@
             z-index: 1;
         }
 
+        .header h1 i {
+            margin-right: 12px;
+        }
+
         .header .subtitle {
             font-size: 18px;
             opacity: 0.9;
             position: relative;
             z-index: 1;
         }
-
-        .content {
-            display: grid;
-            grid-template-columns: 450px 1fr;
-            gap: 30px;
-            padding: 40px;
-        }
-
-        .sidebar {
-            background: var(--gray);
-            padding: 30px;
-            border-radius: 12px;
-            height: fit-content;
-            max-height: calc(100vh - 200px);
-            overflow-y: auto;
-        }
-
-        .sidebar::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .sidebar::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 3px;
-        }
-
-        .section-title {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 18px;
-            color: var(--dark);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .control-group {
-            margin-bottom: 24px;
-        }
-
-        .control-group label {
-            display: block;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
-
-        .control-group input[type="number"],
-        .control-group input[type="text"],
-        .control-group input[type="color"],
-        .control-group input[type="range"],
-        .control-group select,
-        .control-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid var(--border);
-            border-radius: 8px;
-            font-size: 14px;
-            font-family: inherit;
-            transition: all 0.3s;
-        }
-
-        .control-group input:focus,
-        .control-group select:focus,
-        .control-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-
-        .dimension-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-
-        .color-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-
-        .color-picker-group {
-            text-align: center;
-        }
-
-        .color-picker-group small {
-            display: block;
-            margin-bottom: 6px;
-            color: #666;
-            font-size: 12px;
-        }
-
-        .color-picker-group input[type="color"] {
-            height: 50px;
-            cursor: pointer;
-        }
-
-        .preset-buttons {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 8px;
-            margin-top: 12px;
-        }
-
-        .preset-btn {
-            padding: 10px 14px;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .preset-btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
-        }
-
-        .file-upload {
-            position: relative;
-            overflow: hidden;
-            display: block;
-        }
-
-        .file-upload input[type="file"] {
-            position: absolute;
-            left: -9999px;
-        }
-
-        .file-upload label {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 12px;
-            background: var(--primary);
-            color: white;
-            text-align: center;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 600;
-        }
-
-        .file-upload label:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        .preview-area {
-            background: var(--gray);
-            padding: 30px;
-            border-radius: 12px;
-            text-align: center;
-        }
-
-        .canvas-wrapper {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            display: inline-block;
-            margin: 0 auto 20px;
-        }
-
-        canvas {
-            border: 2px solid var(--border);
-            border-radius: 8px;
-            max-width: 100%;
-            height: auto;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .dimensions-display {
-            margin: 20px 0;
-            font-weight: 700;
-            color: var(--primary);
-            font-size: 20px;
-        }
-
-        .action-buttons {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 14px 32px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-        }
-
-        .btn-success {
-            background: var(--success);
-            color: white;
-        }
-
-        .btn-success:hover {
-            background: #38a169;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(72, 187, 120, 0.4);
-        }
-
-        .btn-accent {
-            background: var(--accent);
-            color: var(--dark);
-        }
-
-        .btn-accent:hover {
-            background: #f59e0b;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(251, 191, 36, 0.4);
-        }
-
-        .info-box {
-            background: #e3f2fd;
-            border-left: 4px solid #2196f3;
-            padding: 16px;
-            margin-top: 24px;
-            border-radius: 6px;
-            font-size: 13px;
-            line-height: 1.7;
-        }
-
-        .info-box strong {
-            display: block;
-            margin-bottom: 8px;
-            color: #1976d2;
-        }
-
-        .layout-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            margin-top: 10px;
-        }
-
-        .layout-btn,
-        .effect-btn {
-            padding: 8px;
-            background: white;
-            border: 2px solid var(--border);
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 12px;
-            transition: all 0.3s;
-            font-weight: 600;
-        }
-
-        .layout-btn:hover,
-        .effect-btn:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-
-        .layout-btn.active,
-        .effect-btn.active {
-            background: var(--primary);
-            border-color: var(--primary);
-            color: white;
-        }
-
-        .range-group {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .range-group input[type="range"] {
-            flex: 1;
-        }
-
-        .range-value {
-            min-width: 40px;
-            text-align: center;
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        @media (max-width: 1400px) {
             .content {
-                grid-template-columns: 400px 1fr;
-            }
-        }
-
-        @media (max-width: 1024px) {
-            .content {
-                grid-template-columns: 1fr;
+                display: grid;
+                grid-template-columns: 450px 1fr;
+                gap: 30px;
+                padding: 40px;
             }
 
             .sidebar {
-                max-height: none;
+                background: var(--gray);
+                padding: 30px;
+                border-radius: 12px;
+                height: fit-content;
+                max-height: calc(100vh - 200px);
+                overflow-y: auto;
             }
+
+            .sidebar::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            .sidebar::-webkit-scrollbar-thumb {
+                background: var(--primary);
+                border-radius: 3px;
+            }
+
+            .section-title {
+                font-size: 16px;
+                font-weight: 700;
+                margin-bottom: 18px;
+                color: var(--dark);
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .control-group {
+                margin-bottom: 24px;
+            }
+
+            .control-group label {
+                display: block;
+                font-weight: 600;
+                color: #333;
+                margin-bottom: 10px;
+                font-size: 14px;
+            }
+
+            .control-group input[type='number'],
+            .control-group input[type='text'],
+            .control-group input[type='color'],
+            .control-group input[type='range'],
+            .control-group select,
+            .control-group textarea {
+                width: 100%;
+                padding: 12px;
+                border: 2px solid var(--border);
+                border-radius: 8px;
+                font-size: 14px;
+                font-family: inherit;
+                transition: all 0.3s;
+            }
+
+            .control-group input:focus,
+            .control-group select:focus,
+            .control-group textarea:focus {
+                outline: none;
+                border-color: var(--primary);
+                box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            }
+
+            .dimension-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .color-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .color-picker-group {
+                text-align: center;
+            }
+
+            .color-picker-group small {
+                display: block;
+                margin-bottom: 6px;
+                color: #666;
+                font-size: 12px;
+            }
+
+            .color-picker-group input[type='color'] {
+                height: 50px;
+                cursor: pointer;
+            }
+
+            .preset-buttons {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+                margin-top: 12px;
+            }
+
+            .preset-btn {
+                padding: 10px 14px;
+                background: var(--primary);
+                color: white;
+                border: none;
+                border-radius: 6px;
+                cursor: pointer;
+                font-size: 13px;
+                font-weight: 600;
+                transition: all 0.3s;
+            }
+
+            .preset-btn:hover {
+                background: var(--primary-dark);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+            }
+
+            /* Template Style Selector */
+            .template-style-grid {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                gap: 10px;
+                margin-top: 8px;
+            }
+
+            .template-style-btn {
+                aspect-ratio: 16 / 9;
+                border: 3px solid transparent;
+                border-radius: 10px;
+                cursor: pointer;
+                overflow: hidden;
+                position: relative;
+                transition: all 0.3s ease;
+            }
+
+            .template-style-btn:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            }
+
+            .template-style-btn.active {
+                border-color: var(--accent);
+                box-shadow: 0 0 0 2px var(--accent);
+            }
+
+            .template-style-btn span {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 4px 6px;
+                font-size: 9px;
+                font-weight: 700;
+                text-transform: uppercase;
+                text-align: center;
+                background: rgba(0, 0, 0, 0.6);
+                color: white;
+                letter-spacing: 0.5px;
+            }
+
+            #template-classic {
+                background: linear-gradient(135deg, #1e293b 0%, #312e81 100%);
+            }
+
+            #template-glassmorphism {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            }
+
+            #template-neon {
+                background: #0a0a0f;
+                background-image: 
+                    linear-gradient(90deg, rgba(0,255,255,0.1) 1px, transparent 1px),
+                    linear-gradient(rgba(0,255,255,0.1) 1px, transparent 1px);
+                background-size: 8px 8px;
+            }
+
+            #template-minimal {
+                background: linear-gradient(135deg, #f5f4f2 0%, #e8e4dc 50%, #d4c4a8 100%);
+                border: 2px solid #c9a962;
+            }
+
+            #template-minimal span {
+                color: #8b7355;
+                background: linear-gradient(to right, rgba(255,248,240,0.95), rgba(201,169,98,0.2));
+                font-weight: 700;
+            }
+
+            #template-gradient {
+                background: linear-gradient(135deg, #ff6b6b 0%, #feca57 30%, #48dbfb 60%, #ff9ff3 100%);
+            }
+
+            .file-upload {
+                position: relative;
+                overflow: hidden;
+                display: block;
+            }
+
+            .file-upload input[type='file'] {
+                position: absolute;
+                left: -9999px;
+            }
+
+            .file-upload label {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                padding: 12px;
+                background: var(--primary);
+                color: white;
+                text-align: center;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: all 0.3s;
+                font-weight: 600;
+            }
+
+            .file-upload label:hover {
+                background: var(--primary-dark);
+                transform: translateY(-2px);
+            }
+
+            .preview-area {
+                background: var(--gray);
+                padding: 30px;
+                border-radius: 12px;
+                text-align: center;
+            }
+
+            .canvas-wrapper {
+                background: white;
+                padding: 30px;
+                border-radius: 12px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+                display: inline-block;
+                margin: 0 auto 20px;
+            }
+
+            canvas {
+                border: 2px solid var(--border);
+                border-radius: 8px;
+                max-width: 100%;
+                height: auto;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            }
+
+            .dimensions-display {
+                margin: 20px 0;
+                font-weight: 700;
+                color: var(--primary);
+                font-size: 20px;
+            }
+
+            .action-buttons {
+                display: flex;
+                gap: 12px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .btn {
+                padding: 14px 32px;
+                border: none;
+                border-radius: 8px;
+                font-size: 16px;
+                font-weight: 700;
+                cursor: pointer;
+                transition: all 0.3s;
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .btn-primary {
+                background: var(--primary);
+                color: white;
+            }
+
+            .btn-primary:hover {
+                background: var(--primary-dark);
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            }
+
+            .btn-success {
+                background: var(--success);
+                color: white;
+            }
+
+            .btn-success:hover {
+                background: #38a169;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(72, 187, 120, 0.4);
+            }
+
+            .btn-accent {
+                background: var(--accent);
+                color: var(--dark);
+            }
+
+            .btn-accent:hover {
+                background: #f59e0b;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(251, 191, 36, 0.4);
+            }
+
+            .info-box {
+                background: #e3f2fd;
+                border-left: 4px solid #2196f3;
+                padding: 16px;
+                margin-top: 24px;
+                border-radius: 6px;
+                font-size: 13px;
+                line-height: 1.7;
+            }
+
+            .info-box strong {
+                display: block;
+                margin-bottom: 8px;
+                color: #1976d2;
+            }
+
+            .layout-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+                margin-top: 10px;
+            }
+
+            .layout-btn,
+            .effect-btn {
+                padding: 8px;
+                background: white;
+                border: 2px solid var(--border);
+                border-radius: 6px;
+                cursor: pointer;
+                font-size: 12px;
+                transition: all 0.3s;
+                font-weight: 600;
+            }
+
+            .layout-btn:hover,
+            .effect-btn:hover {
+                border-color: var(--primary);
+                color: var(--primary);
+            }
+
+            .layout-btn.active,
+            .effect-btn.active {
+                background: var(--primary);
+                border-color: var(--primary);
+                color: white;
+            }
+
+            .range-group {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .range-group input[type='range'] {
+                flex: 1;
+            }
+
+            .range-value {
+                min-width: 40px;
+                text-align: center;
+                font-weight: 600;
+                color: var(--primary);
+            }
+
+            /* Floating Preview Styles for Mobile */
+            .floating-preview {
+                display: none;
+                position: fixed;
+                top: 10px;
+                left: 10px;
+                right: 10px;
+                z-index: 1000;
+                background: linear-gradient(135deg, var(--dark) 0%, #312e81 100%);
+                border-radius: 16px;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+                overflow: hidden;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                backdrop-filter: blur(10px);
+            }
+
+            .floating-preview.minimized {
+                top: 10px;
+                bottom: auto;
+                left: auto;
+                right: 16px;
+                width: 56px;
+                height: 56px;
+                border-radius: 50%;
+                background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%);
+                box-shadow: 0 6px 24px rgba(245, 158, 11, 0.4);
+            }
+
+            .floating-preview-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 12px 16px;
+                background: rgba(0, 0, 0, 0.2);
+                cursor: pointer;
+            }
+
+            .floating-preview.minimized .floating-preview-header {
+                justify-content: center;
+                padding: 0;
+                width: 56px;
+                height: 56px;
+                background: transparent;
+            }
+
+            .floating-preview-header h4 {
+                color: white;
+                font-size: 14px;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                margin: 0;
+            }
+
+            .floating-preview.minimized .floating-preview-header h4 {
+                font-size: 20px;
+            }
+
+            .floating-preview.minimized .floating-preview-header h4 span {
+                display: none;
+            }
+
+            .floating-preview.minimized .floating-preview-toggle {
+                display: none;
+            }
+
+            .floating-preview-toggle {
+                background: rgba(255, 255, 255, 0.2);
+                border: none;
+                color: white;
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+            }
+
+            .floating-preview-toggle:hover {
+                background: rgba(255, 255, 255, 0.3);
+                transform: scale(1.1);
+            }
+
+            .floating-preview-toggle i {
+                transition: transform 0.3s ease;
+            }
+
+            .floating-preview.minimized .floating-preview-toggle i {
+                transform: rotate(180deg);
+            }
+
+            .floating-preview-content {
+            padding: 16px;
+            text-align: center;
+            max-height: 350px;
+            overflow: hidden;
+            transition: all 0.3s ease;
         }
 
-        @media (max-width: 768px) {
+        .floating-preview.minimized .floating-preview-content {
+            max-height: 0;
+            padding: 0 16px;
+        }
+
+        .floating-preview-canvas {
+            max-width: 100%;
+            max-height: 280px;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .floating-preview-dimensions {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 11px;
+            margin-top: 10px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+            @media (max-width: 1400px) {
+                .content {
+                    grid-template-columns: 400px 1fr;
+                }
+            }
+
+            @media (max-width: 1024px) {
+                .floating-preview {
+                    display: block;
+                }
+
+                .content {
+                    grid-template-columns: 1fr;
+                }
+
+                .sidebar {
+                    max-height: none;
+                    order: 1;
+                }
+
+                .preview-area {
+                    order: 2;
+                    padding-bottom: 100px; /* Safe zone for FAB */
+                }
+            }
+
+            @media (max-width: 768px) {
+            /* Compact header for mobile */
+            .header {
+                padding: 16px 20px;
+            }
+
             .header h1 {
-                font-size: 28px;
+                font-size: 18px;
+                margin-bottom: 4px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+            }
+
+            .header h1 i {
+                font-size: 16px;
+                margin-right: 0;
+            }
+
+            .header .subtitle {
+                font-size: 12px;
+                opacity: 0.8;
             }
 
             .content {
-                padding: 20px;
+                padding: 16px;
             }
 
             .preset-buttons {
                 grid-template-columns: 1fr;
             }
+
+            .template-style-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+            }
+
+            .template-style-btn span {
+                font-size: 8px;
+                padding: 3px 4px;
+            }
+
+            /* Larger preview on mobile */
+            .floating-preview-content {
+                max-height: 320px;
+                padding: 12px;
+            }
+
+            .floating-preview-canvas {
+                max-height: 250px;
+            }
         }
-    </style>
-</head>
 
-<body>
-    <div class="container">
-        <div class="header">
-            <h1><i class="fas fa-image"></i> Social Share Image Generator</h1>
-            <p class="subtitle">Professional tool with intelligent adaptive layouts for any dimension</p>
-        </div>
+        @media (max-width: 480px) {
+            /* Ultra-compact header for small phones */
+            .header {
+                padding: 12px 16px;
+            }
 
-        <div class="content">
-            <div class="sidebar">
-                <div class="section-title">
-                    <i class="fas fa-sliders-h"></i> Image Settings
-                </div>
+            .header h1 {
+                font-size: 16px;
+            }
 
-                <div class="control-group">
-                    <label><i class="fas fa-ruler-combined"></i> Dimensions (Width × Height)</label>
-                    <div class="dimension-grid">
-                        <input type="number" id="width" value="1200" min="100" max="5000" placeholder="Width">
-                        <input type="number" id="height" value="630" min="100" max="5000" placeholder="Height">
-                    </div>
-                    <div class="preset-buttons">
-                        <button class="preset-btn" onclick="setDimensions(1200, 630)">
-                            <i class="fab fa-facebook"></i> OG Standard
-                        </button>
-                        <button class="preset-btn" onclick="setDimensions(1200, 675)">
-                            <i class="fab fa-twitter"></i> Twitter
-                        </button>
-                        <button class="preset-btn" onclick="setDimensions(1080, 1080)">
-                            <i class="fab fa-instagram"></i> Instagram
-                        </button>
-                        <button class="preset-btn" onclick="setDimensions(1920, 1080)">
-                            <i class="fab fa-youtube"></i> YouTube
-                        </button>
-                        <button class="preset-btn" onclick="setDimensions(1200, 1200)">
-                            <i class="fas fa-square"></i> Square
-                        </button>
-                        <button class="preset-btn" onclick="setDimensions(800, 1200)">
-                            <i class="fas fa-mobile-alt"></i> Story
-                        </button>
-                    </div>
-                </div>
+            .header .subtitle {
+                font-size: 11px;
+            }
 
-                <div class="control-group">
-                    <label><i class="fas fa-th-large"></i> Layout Template</label>
-                    <div class="layout-grid">
-                        <button class="layout-btn active" id="layout-auto" onclick="setLayout('auto')">Auto</button>
-                        <button class="layout-btn" id="layout-centered"
-                            onclick="setLayout('centered')">Centered</button>
-                        <button class="layout-btn" id="layout-split" onclick="setLayout('split')">Split</button>
-                        <button class="layout-btn" id="layout-minimal" onclick="setLayout('minimal')">Minimal</button>
-                        <button class="layout-btn" id="layout-bold" onclick="setLayout('bold')">Bold</button>
-                        <button class="layout-btn" id="layout-elegant" onclick="setLayout('elegant')">Elegant</button>
-                    </div>
-                </div>
+            /* Large preview despite small screen */
+            .floating-preview-content {
+                max-height: 300px;
+                padding: 10px;
+            }
 
-                <div class="control-group">
-                    <label><i class="fas fa-image"></i> Profile Image</label>
-                    <div class="file-upload">
-                        <input type="file" id="profileUpload" accept="image/*" onchange="loadProfileImage(event)">
-                        <label for="profileUpload">
-                            <i class="fas fa-upload"></i> Choose Image
-                        </label>
-                    </div>
-                </div>
+            .floating-preview-canvas {
+                max-height: 230px;
+            }
 
-                <div class="control-group">
-                    <label><i class="fas fa-user"></i> Name</label>
-                    <input type="text" id="nameText" value="Your Name" oninput="regenerateImage()">
-                </div>
+            .floating-preview-header {
+                padding: 8px 12px;
+            }
 
-                <div class="control-group">
-                    <label><i class="fas fa-briefcase"></i> Title</label>
-                    <input type="text" id="titleText" value="Your Professional Title" oninput="regenerateImage()">
-                </div>
+            .floating-preview-header h4 {
+                font-size: 12px;
+            }
 
-                <div class="control-group">
-                    <label><i class="fas fa-comment-dots"></i> Subtitle (Optional)</label>
-                    <input type="text" id="subtitleText" value="Additional Info" oninput="regenerateImage()">
-                </div>
+            .floating-preview-toggle {
+                width: 28px;
+                height: 28px;
+            }
+        }
+        </style>
+    </head>
 
-                <div class="control-group">
-                    <label><i class="fas fa-globe"></i> Website (Optional)</label>
-                    <input type="text" id="websiteText" value="yourwebsite.com" oninput="regenerateImage()">
-                </div>
-
-                <div class="control-group">
-                    <label><i class="fas fa-text-height"></i> Text Scale</label>
-                    <div class="range-group">
-                        <input type="range" id="textScale" min="50" max="150" value="100"
-                            oninput="updateTextScale(this.value)">
-                        <span class="range-value" id="textScaleValue">100%</span>
-                    </div>
-                </div>
-
-                <div class="control-group">
-                    <label><i class="fas fa-palette"></i> Background Colors</label>
-                    <div class="color-grid">
-                        <div class="color-picker-group">
-                            <small>Start Color</small>
-                            <input type="color" id="colorStart" value="#1e293b" onchange="regenerateImage()">
-                        </div>
-                        <div class="color-picker-group">
-                            <small>End Color</small>
-                            <input type="color" id="colorEnd" value="#312e81" onchange="regenerateImage()">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="control-group">
-                    <label><i class="fas fa-star"></i> Accent Color</label>
-                    <input type="color" id="accentColor" value="#fbbf24" onchange="regenerateImage()">
-                </div>
-
-                <div class="control-group">
-                    <label><i class="fas fa-magic"></i> Visual Effects</label>
-                    <div class="layout-grid">
-                        <button class="effect-btn" id="effect-none" onclick="setEffect('none')">None</button>
-                        <button class="effect-btn active" id="effect-pattern"
-                            onclick="setEffect('pattern')">Pattern</button>
-                        <button class="effect-btn" id="effect-circles" onclick="setEffect('circles')">Circles</button>
-                        <button class="effect-btn" id="effect-grid" onclick="setEffect('grid')">Grid</button>
-                        <button class="effect-btn" id="effect-waves" onclick="setEffect('waves')">Waves</button>
-                        <button class="effect-btn" id="effect-dots" onclick="setEffect('dots')">Dots</button>
-                    </div>
-                </div>
-
-                <div class="control-group">
-                    <label><i class="fas fa-download"></i> Export Quality</label>
-                    <select id="exportQuality" onchange="regenerateImage()">
-                        <option value="1">High (1x)</option>
-                        <option value="2">Ultra (2x)</option>
-                        <option value="0.8">Medium (0.8x)</option>
-                    </select>
-                </div>
-
-                <div class="info-box">
-                    <strong><i class="fas fa-info-circle"></i> Intelligent Adaptive Layout</strong>
-                    • Auto-adjusts to any dimension<br>
-                    • Smart text sizing & positioning<br>
-                    • Portrait, landscape & square support<br>
-                    • Professional outputs for all platforms
-                </div>
+    <body>
+        <!-- Floating Preview for Mobile (fixed position, outside container) -->
+        <div class="floating-preview" id="floatingPreview">
+            <div class="floating-preview-header" onclick="toggleFloatingPreview()">
+                <h4><i class="fas fa-eye"></i> <span>Live Preview</span></h4>
+                <button class="floating-preview-toggle" aria-label="Toggle preview">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
             </div>
-
-            <div class="preview-area">
-                <h3 style="margin-bottom: 20px; color: #333; font-size: 20px;">
-                    <i class="fas fa-eye"></i> Live Preview
-                </h3>
-                <div class="canvas-wrapper">
-                    <canvas id="socialCanvas"></canvas>
-                </div>
-                <div class="dimensions-display" id="dimensionsDisplay">1200 × 630 pixels</div>
-
-                <div class="action-buttons">
-                    <button class="btn btn-primary" onclick="regenerateImage()">
-                        <i class="fas fa-sync-alt"></i> Regenerate
-                    </button>
-                    <button class="btn btn-success" onclick="downloadImage()">
-                        <i class="fas fa-download"></i> Download PNG
-                    </button>
-                    <button class="btn btn-accent" onclick="copyToClipboard()">
-                        <i class="fas fa-copy"></i> Copy
-                    </button>
+            <div class="floating-preview-content">
+                <canvas class="floating-preview-canvas" id="floatingCanvas"></canvas>
+                <div class="floating-preview-dimensions" id="floatingDimensions">
+                    1200 × 630
                 </div>
             </div>
         </div>
-    </div>
 
-    <script src="generator.js"></script>
-</body>
+        <div class="container">
+            <div class="header">
+                <h1><i class="fas fa-image"></i> Social Share Image Generator</h1>
+                <p class="subtitle">
+                    Professional tool with intelligent adaptive layouts for any dimension
+                </p>
+            </div>
 
+            <div class="content">
+                <div class="sidebar">
+                    <div class="section-title"><i class="fas fa-sliders-h"></i> Image Settings</div>
+
+                    <div class="control-group">
+                        <label
+                            ><i class="fas fa-ruler-combined"></i> Dimensions (Width ×
+                            Height)</label
+                        >
+                        <div class="dimension-grid">
+                            <input
+                                type="number"
+                                id="width"
+                                value="1200"
+                                min="100"
+                                max="5000"
+                                placeholder="Width"
+                            />
+                            <input
+                                type="number"
+                                id="height"
+                                value="630"
+                                min="100"
+                                max="5000"
+                                placeholder="Height"
+                            />
+                        </div>
+                        <div class="preset-buttons">
+                            <button class="preset-btn" onclick="setDimensions(1200, 630)">
+                                <i class="fab fa-facebook"></i> OG Standard
+                            </button>
+                            <button class="preset-btn" onclick="setDimensions(1200, 675)">
+                                <i class="fab fa-twitter"></i> Twitter
+                            </button>
+                            <button class="preset-btn" onclick="setDimensions(1080, 1080)">
+                                <i class="fab fa-instagram"></i> Instagram
+                            </button>
+                            <button class="preset-btn" onclick="setDimensions(1920, 1080)">
+                                <i class="fab fa-youtube"></i> YouTube
+                            </button>
+                            <button class="preset-btn" onclick="setDimensions(1200, 1200)">
+                                <i class="fas fa-square"></i> Square
+                            </button>
+                            <button class="preset-btn" onclick="setDimensions(800, 1200)">
+                                <i class="fas fa-mobile-alt"></i> Story
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label><i class="fas fa-palette"></i> Template Style</label>
+                        <div class="template-style-grid">
+                            <button class="template-style-btn active" id="template-classic" onclick="setTemplateStyle('classic')">
+                                <span>Classic</span>
+                            </button>
+                            <button class="template-style-btn" id="template-glassmorphism" onclick="setTemplateStyle('glassmorphism')">
+                                <span>Glass</span>
+                            </button>
+                            <button class="template-style-btn" id="template-neon" onclick="setTemplateStyle('neon')">
+                                <span>Neon</span>
+                            </button>
+                            <button class="template-style-btn" id="template-minimal" onclick="setTemplateStyle('minimal')">
+                                <span>Luxury</span>
+                            </button>
+                            <button class="template-style-btn" id="template-gradient" onclick="setTemplateStyle('gradient')">
+                                <span>Vibrant</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label><i class="fas fa-th-large"></i> Layout Template</label>
+                        <div class="layout-grid">
+                            <button
+                                class="layout-btn active"
+                                id="layout-auto"
+                                onclick="setLayout('auto')"
+                            >
+                                Auto
+                            </button>
+                            <button
+                                class="layout-btn"
+                                id="layout-centered"
+                                onclick="setLayout('centered')"
+                            >
+                                Centered
+                            </button>
+                            <button
+                                class="layout-btn"
+                                id="layout-split"
+                                onclick="setLayout('split')"
+                            >
+                                Split
+                            </button>
+                            <button
+                                class="layout-btn"
+                                id="layout-minimal"
+                                onclick="setLayout('minimal')"
+                            >
+                                Minimal
+                            </button>
+                            <button class="layout-btn" id="layout-bold" onclick="setLayout('bold')">
+                                Bold
+                            </button>
+                            <button
+                                class="layout-btn"
+                                id="layout-elegant"
+                                onclick="setLayout('elegant')"
+                            >
+                                Elegant
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label><i class="fas fa-image"></i> Profile Image</label>
+                        <div class="file-upload">
+                            <input
+                                type="file"
+                                id="profileUpload"
+                                accept="image/*"
+                                onchange="loadProfileImage(event)"
+                            />
+                            <label for="profileUpload">
+                                <i class="fas fa-upload"></i> Choose Image
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label><i class="fas fa-user"></i> Name</label>
+                        <input
+                            type="text"
+                            id="nameText"
+                            value="Your Name"
+                            oninput="regenerateImage()"
+                        />
+                    </div>
+
+                    <div class="control-group">
+                        <label><i class="fas fa-briefcase"></i> Title</label>
+                        <input
+                            type="text"
+                            id="titleText"
+                            value="Your Professional Title"
+                            oninput="regenerateImage()"
+                        />
+                    </div>
+
+                    <div class="control-group">
+                        <label><i class="fas fa-comment-dots"></i> Subtitle (Optional)</label>
+                        <input
+                            type="text"
+                            id="subtitleText"
+                            value="Additional Info"
+                            oninput="regenerateImage()"
+                        />
+                    </div>
+
+                    <div class="control-group">
+                        <label><i class="fas fa-globe"></i> Website (Optional)</label>
+                        <input
+                            type="text"
+                            id="websiteText"
+                            value="yourwebsite.com"
+                            oninput="regenerateImage()"
+                        />
+                    </div>
+
+                    <div class="control-group">
+                        <label><i class="fas fa-text-height"></i> Text Scale</label>
+                        <div class="range-group">
+                            <input
+                                type="range"
+                                id="textScale"
+                                min="50"
+                                max="150"
+                                value="100"
+                                oninput="updateTextScale(this.value)"
+                            />
+                            <span class="range-value" id="textScaleValue">100%</span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label><i class="fas fa-palette"></i> Background Colors</label>
+                        <div class="color-grid">
+                            <div class="color-picker-group">
+                                <small>Start Color</small>
+                                <input
+                                    type="color"
+                                    id="colorStart"
+                                    value="#1e293b"
+                                    onchange="regenerateImage()"
+                                />
+                            </div>
+                            <div class="color-picker-group">
+                                <small>End Color</small>
+                                <input
+                                    type="color"
+                                    id="colorEnd"
+                                    value="#312e81"
+                                    onchange="regenerateImage()"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label><i class="fas fa-star"></i> Accent Color</label>
+                        <input
+                            type="color"
+                            id="accentColor"
+                            value="#fbbf24"
+                            onchange="regenerateImage()"
+                        />
+                    </div>
+
+                    <div class="control-group">
+                        <label><i class="fas fa-magic"></i> Visual Effects</label>
+                        <div class="layout-grid">
+                            <button class="effect-btn" id="effect-none" onclick="setEffect('none')">
+                                None
+                            </button>
+                            <button
+                                class="effect-btn active"
+                                id="effect-pattern"
+                                onclick="setEffect('pattern')"
+                            >
+                                Pattern
+                            </button>
+                            <button
+                                class="effect-btn"
+                                id="effect-circles"
+                                onclick="setEffect('circles')"
+                            >
+                                Circles
+                            </button>
+                            <button class="effect-btn" id="effect-grid" onclick="setEffect('grid')">
+                                Grid
+                            </button>
+                            <button
+                                class="effect-btn"
+                                id="effect-waves"
+                                onclick="setEffect('waves')"
+                            >
+                                Waves
+                            </button>
+                            <button class="effect-btn" id="effect-dots" onclick="setEffect('dots')">
+                                Dots
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label><i class="fas fa-download"></i> Export Quality</label>
+                        <select id="exportQuality" onchange="regenerateImage()">
+                            <option value="1">High (1x)</option>
+                            <option value="2">Ultra (2x)</option>
+                            <option value="0.8">Medium (0.8x)</option>
+                        </select>
+                    </div>
+
+                    <div class="info-box">
+                        <strong
+                            ><i class="fas fa-info-circle"></i> Intelligent Adaptive Layout</strong
+                        >
+                        • Auto-adjusts to any dimension<br />
+                        • Smart text sizing & positioning<br />
+                        • Portrait, landscape & square support<br />
+                        • Professional outputs for all platforms
+                    </div>
+                </div>
+
+                <div class="preview-area">
+                    <h3 style="margin-bottom: 20px; color: #333; font-size: 20px">
+                        <i class="fas fa-eye"></i> Live Preview
+                    </h3>
+                    <div class="canvas-wrapper">
+                        <canvas id="socialCanvas"></canvas>
+                    </div>
+                    <div class="dimensions-display" id="dimensionsDisplay">1200 × 630 pixels</div>
+
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" onclick="regenerateImage()">
+                            <i class="fas fa-sync-alt"></i> Regenerate
+                        </button>
+                        <button class="btn btn-success" onclick="downloadImage()">
+                            <i class="fas fa-download"></i> Download PNG
+                        </button>
+                        <button class="btn btn-accent" onclick="copyToClipboard()">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="generator.js"></script>
+    </body>
 </html>
